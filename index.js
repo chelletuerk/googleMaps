@@ -14,9 +14,9 @@
 //        })
 //      }
 
-function addMarkerOnClick() {
+addMarkerOnClick = () => {
   var map = new google.maps.Map(document.getElementById('map'), {
-    zoom: 4,
+    zoom: 2,
     center: {lat: 39.849, lng: -104.673}
   })
   map.addListener('click', function(e) {
@@ -29,5 +29,6 @@ function addMarkerOnClick() {
       map: map
     });
     map.panTo(latLng)
+    console.log(marker.position)
   }
 }
