@@ -1,4 +1,4 @@
-var markerArr = []
+var markers = []
 
 addMarkerOnClick = () => {
   const map = new google.maps.Map(document.getElementById('map'), {
@@ -6,9 +6,9 @@ addMarkerOnClick = () => {
     center: {lat: 39.849, lng: -104.673}
   })
 
-  map.addListener('click', (e) => {
+  map.addListener('click', e => {
    placeMarkerAndPanTo(e.latLng, map);
-    })
+  })
 }
 
 placeMarkerAndPanTo = (latLng, map) => {
@@ -17,14 +17,12 @@ placeMarkerAndPanTo = (latLng, map) => {
     map: map
   })
   map.panTo(latLng)
-  console.log(marker.position.lat())
-  console.log(marker.position.lng())
   const lat = marker.position.lat()
   const lng = marker.position.lng()
   addToMarkerArray(lat, lng)
 }
 
 addToMarkerArray = (lat, lng) => {
-  markerArr.push({lat: lat, lng: lng})
-  console.log(markerArr)
+  markers.push({lat: lat, lng: lng})
+  console.log(markers)
 }
